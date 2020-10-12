@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+	<title>Doglist</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+</head>
+
+<body>
+	<h1>Koiravaljakko</h1>
+	
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sign Out"/>
+	</form>
+		
+	<table>
+		<tr>
+			<th>Nimi</th>
+			<th>Sukupuoli</th>
+			<th>Tiedot</th>
+			<th>Mikrosiru</th>
+			<th>Kenneli</th>
+		</tr>
+		
+		<tr th:each = "dog : ${dogs}">
+			<td th:text="${dog.name}"></td>
+			<td th:text="${dog.gender}"></td>
+			<td th:text="${dog.information}"></td>
+			<td th:text="${dog.microship}"></td>
+			<td th:text="${dog.kennel.name}"></td>
+
+			 <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${dog.id})}">Muokkaa</a></td>
+			 <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${dog.id})}">Poista</a></td>
+		</tr>
+	</table>
+	<a href="/add">Lisää uusi koira</a>
+</body>
+</html>

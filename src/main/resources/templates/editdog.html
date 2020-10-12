@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Edit</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h2>Muokkaa koiran tietoja</h2>
+	<div>
+		<form th:object="${dog}" th:action="@{../save}" action="#" method="post">
+			<input type="hidden" id="id" th:field="*{id}" class="form-control" />
+			<label for="name">Nimi</label>
+			<input type="text" id="name" th:field="*{name}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			<label for="gender">Sukupuoli</label>
+			<input type="text" th:field="*{gender}" />
+			<div style="clear: both; display: block; height: 10px;" ></div>
+			<label for="information">Tiedot</label>
+			<input type="text" th:field="*{information}" />
+			<div style="clear: both; display: block; height: 10px;" ></div>
+			<label for="microship">Mikrosiru</label>
+			<input type="text" th:field="*{microship}" />
+			
+			<div style="clear: both; display: block; height: 10px;" ></div>
+			<label for="kennelList">Kenneli</label>
+			<select id="kennelList" th:field="*{kennel}">
+				<option th:each="kennel: ${kennels}" th:value="${kennel.kennelid}" th:text="${kennel.name}"></option>
+			</select>
+			
+			<div style="clear: both; display: block; height: 10px;" ></div>
+			<input type="submit" value="Save"></input>
+		</form>
+	</div>
+</body>
+</html>
