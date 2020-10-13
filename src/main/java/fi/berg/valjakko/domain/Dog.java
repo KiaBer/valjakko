@@ -17,11 +17,11 @@ public class Dog {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Size(min=3, max=40)
+	@Size(min=3, max=40, message="Nimen täytyy sisältää 3-40 merkkiä")
 	private String name, gender, information;
 
 	
-	@NotNull
+	@NotNull(message = "Mikrosirun numero ei voi olla tyhjä")
 	private int microship;
 	
 	@ManyToOne
