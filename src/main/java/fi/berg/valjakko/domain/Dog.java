@@ -21,8 +21,9 @@ public class Dog {
 	private String name, gender, information;
 
 	
-	@NotNull(message = "Mikrosirun numero ei voi olla tyhjä")
-	private int microship;
+	@NotNull
+	@Size(min=1, message="Mikrosirun numero ei voi olla tyhjä")
+	private String microship;
 	
 	@ManyToOne
 	@JoinColumn(name = "kennelid")
@@ -33,7 +34,7 @@ public class Dog {
 		super();
 	}
 	
-	public Dog(String name, String gender, String information, int microship, Kennel kennel) {
+	public Dog(String name, String gender, String information, String microship, Kennel kennel) {
 		super();
 		this.name = name;
 		this.gender = gender;
@@ -42,7 +43,7 @@ public class Dog {
 		this.kennel = kennel;
 	}
 	
-	public Dog(String name, String gender, String information, int microship) {
+	public Dog(String name, String gender, String information, String microship) {
 		super();
 		this.name = name;
 		this.gender = gender;
@@ -74,10 +75,10 @@ public class Dog {
 	public void setInformation(String information) {
 		this.information = information;
 	}
-	public int getMicroship() {
+	public String getMicroship() {
 		return microship;
 	}
-	public void setMicroship(int microship) {
+	public void setMicroship(String microship) {
 		this.microship = microship;
 	}
 
@@ -90,12 +91,12 @@ public class Dog {
 	
 	@Override
 	public String toString() {
-		if (this.kennel != null)
+		if (this.kennel != null){
 		return "Dog [id=" + id + ", name=" + name + ", gender=" + gender + ", information=" + information
-				+ ", microship=" + microship + ", kennel=" + this.getKennel() + "]";
-		else
+				+ ", microship=" + microship + ", kennel=" + this.getKennel() + "]";}
+		else {
 		return "Dog [id=" + id + ", name=" + name + ", gender=" + gender + ", information=" + information
 				+ ", microship=" + microship + "]";
+		}
 	}
-
 }
