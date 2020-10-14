@@ -67,5 +67,4 @@ public class DogController {
 		repository.save(dog);
 		return "redirect:doglist";
 	}
-
 }

@@ -4,13 +4,13 @@
 		<title>Spring Security</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
-	<body>
+	<body style="background-color: #e6ffff; margin: 25px">
 		<div th:if="${param.error}">
-			Virheellinen käyttäjätunnus ja salasana.
+			<b>Virheellinen käyttäjätunnus ja salasana.</b>
 			<div style="clear: both; display: block; height: 10px;" ></div>
 		</div>
 		<div th:if="${param.logout}">
-			Olet kirjautunut ulos.
+			<b>Olet kirjautunut ulos.</b>
 			<div style="clear: both; display: block; height: 10px;" ></div>
 		</div>
 		<form th:action="@{/login}" method="post">
@@ -18,7 +18,7 @@
 			<div style="clear: both; display: block; height: 10px;" ></div>
 			<div><label> Salasana: <input type="password" name="password"/> </label></div>
 			<div style="clear: both; display: block; height: 10px;" ></div>
-			<div><input type="submit" value="Sign In"/></div>
+			<div><input type="submit" value="Kirjaudu sisään"/></div>
 		</form>
 	</body>
 </html>
