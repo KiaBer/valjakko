@@ -6,7 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,12 +16,14 @@ public class Dog {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Size(min=3, max=40, message="Nimen täytyy sisältää 3-40 merkkiä")
-	private String name, gender, information;
 
+	@Size(min=3, max=80, message="Nimen täytyy sisältää 3-80 merkkiä")
+	private String name;
+	private String gender;
+	private String information;
 	
-	@NotNull
-	@Size(min=1, message="Mikrosirun numero ei voi olla tyhjä")
+	@Size(min=1, message="Mikrosirun numero on pakollinen")
+
 	private String microship;
 	
 	@ManyToOne

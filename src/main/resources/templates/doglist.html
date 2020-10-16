@@ -6,33 +6,36 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
 </head>
 
-<body>
-	<h1>Koiravaljakko</h1>
-	
-	<form th:action="@{/logout}" method="post">
-		<input type="submit" value="Sign Out"/>
-	</form>
-		
+<body style="background-color: #e6ffff; margin: 25px">
+
+	<h1 style="text-align:center;">KIAN KOIRAVALJAKKO</h1>
+
 	<table>
 		<tr>
-			<th>Nimi</th>
-			<th>Sukupuoli</th>
-			<th>Tiedot</th>
-			<th>Mikrosiru</th>
-			<th>Kenneli</th>
+			<th>NIMI</th>
+			<th>SUKUPUOLI</th>
+			<th>TIEDOT</th>
+			<th>MIKROSIRU</th>
+			<th>KENNELI</th>
 		</tr>
 		
-		<tr th:each = "dog : ${dogs}">
-			<td th:text="${dog.name}"></td>
-			<td th:text="${dog.gender}"></td>
-			<td th:text="${dog.information}"></td>
-			<td th:text="${dog.microship}"></td>
-			<td th:text="${dog.kennel.name}"></td>
+		<tr th:each = "dog : ${dogs}" style="padding: 5px;">
+			<td th:text="${dog.name}" style="padding: 5px;"></td>
+			<td th:text="${dog.gender}" style="padding: 5px;"></td>
+			<td th:text="${dog.information}" style="padding: 5px;"></td>
+			<td th:text="${dog.microship}" style="padding: 5px;"></td>
+			<td th:text="${dog.kennel.name}" style="padding-left: 10px; padding-right:10px;"></td>
 
-			 <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${dog.id})}">Muokkaa</a></td>
-			 <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${dog.id})}">Poista</a></td>
+			 <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/edit/{id}(id=${dog.id})}" style="text-decoration: none; color:blue; border-radius: 5px; margin: 3px;">Muokkaa</a></td>
+			 <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${dog.id})}" style="text-decoration: none; color:red; border-radius: 5px; margin: 3px;">Poista</a></td>
 		</tr>
 	</table>
-	<a href="/add">Lisää uusi koira</a>
+	<div style="clear: both; display: block; height: 10px;" ></div>
+	<a href="/add" style="text-decoration: none; color:blue; border-radius: 5px; margin: 3px;">Lisää uusi koira</a>
+	<div style="clear: both; display: block; height: 10px;" ></div>
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Kirjaudu ulos"/>
+	</form>
+
 </body>
 </html>

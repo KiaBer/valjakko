@@ -4,7 +4,7 @@
 	<title>Edit</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
-<body>
+<body style="background-color: #e6ffff; margin: 25px">
 	<h2>Muokkaa koiran tietoja</h2>
 	<div>
 		<form th:object="${dog}" th:action="@{../save}" action="#" method="post">
@@ -24,11 +24,11 @@
 			<div style="clear: both; display: block; height: 10px;" ></div>
 			<label for="kennelList">Kenneli</label>
 			<select id="kennelList" th:field="*{kennel}">
-				<option th:each="kennel: ${kennels}" th:value="${kennel.kennelid}" th:text="${kennel.name}"></option>
+				<option th:each="kennel: ${kennels}" th:value="${kennel.kennelid}" th:text="${kennel.name}" ></option>
 			</select>
 			
 			<div style="clear: both; display: block; height: 10px;" ></div>
-			<input type="submit" value="Save"></input>
+			<input type="submit" value="Tallenna"></input>
 		</form>
 	</div>
 </body>
