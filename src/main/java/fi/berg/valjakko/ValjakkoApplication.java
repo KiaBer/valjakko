@@ -29,9 +29,11 @@ public class ValjakkoApplication {
 			krepository.save(new Kennel("Punainen kuu"));
 			krepository.save(new Kennel("Seinäjoen salamat"));
 			
+
 			repository.save(new Dog("Vauhtiviikarien Viisas Vili", "Uros","Lahjakas, mutta kärsimätön. Rokotettu 5.6.2020.", "12345678", krepository.findByName("Vauhtiviikarit").get(0)));
 			repository.save(new Dog("Punaisen kuun Pirteä Pipsa-Leena", "Naaras","Rauhallinen ja kärsivällinen.", "23456789", krepository.findByName("Punainen kuu").get(0)));
 			repository.save(new Dog("Seinäjoen salamien Sitkeä Seppo", "Uros","Mahdollinen pudokas? Ontuu usein kovan rasituksen jälkeen.", "34567890", krepository.findByName("Seinäjoen salamat").get(0)));
+
 			
 			User user1 = new User("user", "$2a$10$smtjA5yelG/rYm8UQwsjz.eCweM0lFBwgwoHaE/S5sYJ3pfVQ4RE.", "USER");
 			User user2 = new User("admin", "$2a$10$T/XFrgxBq.6pc9jmStCod.ZUmjPq2L3QW3q/xnJTK7mIUhnjLNIhe", "ADMIN");
